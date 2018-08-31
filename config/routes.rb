@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'cities/index'
+  get 'cities/show'
   get 'trips/new'
   get 'trips/create'
   get 'trips/edit'
