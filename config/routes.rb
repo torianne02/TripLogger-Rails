@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'countries/index'
+  get 'countries/show'
   get 'cities/index'
   get 'cities/show'
   get 'trips/new'
