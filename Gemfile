@@ -27,6 +27,15 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Use OmniAuth gem
+gem 'omniauth'
+
+# Use provider-specific OmniAuth gem
+gem 'omniauth-facebook'
+
+# Use dotenv-rails so environment variables are correctly loaded into the ENV
+gem 'dotenv-rails'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
