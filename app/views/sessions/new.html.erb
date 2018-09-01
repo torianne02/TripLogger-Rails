@@ -1,9 +1,12 @@
-<%= form_for @user, :url => url_for(controller: 'sessions', action: 'create') do |f| %>
-  <%= f.label :username %>
-  <%= select_tag "username", options_from_collection_for_select(@users, "id", "name") %>
+<%= form_tag({ controller: 'sessions', action: 'create', method: 'post' }) do %>
+  <%= label_tag :username %>
+  <%= text_field_tag :username %>
 
-  <%= f.label :password %>
+  <%= label_tag :email %>
+  <%= text_field_tag :email %>
+
+  <%= label_tag :password %>
   <%= password_field_tag :password %>
 
-  <%= f.submit 'Sign In' %>
+  <%= submit_tag 'Sign In' %>
 <% end %>
