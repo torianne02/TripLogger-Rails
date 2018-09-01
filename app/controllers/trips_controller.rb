@@ -26,6 +26,8 @@ class TripsController < ApplicationController
   end
 
   def destroy
+    @trip.destroy
+    redirect_to trips_url, notice: 'Trip was successfully deleted.'
   end
 
   def index
@@ -33,6 +35,9 @@ class TripsController < ApplicationController
   end
 
   def show
+    @user = current_user
+    @city = City.find_by(id: @trip.city_id)
+    @country = Country.find_by(id: @trip.country_id)
   end
 
   private
