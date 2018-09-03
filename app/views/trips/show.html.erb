@@ -1,2 +1,11 @@
-<h1>Trips#show</h1>
-<p>Find me in app/views/trips/show.html.erb</p>
+<!-- need to figure out whether to use @user.username or @trip.user.username -->
+<!-- need to decide if all users can view anyones trips/show page -->
+
+<%= notice %>
+
+<h1><%= @trip.name %>, <%= @country.name %> Trip</h1>
+
+<ul>
+  <li>Length of Trip: <%= @trip.length_of_trip %></li>
+  <li>Trip Created by: <%= @trip.user.username %>
+</ul>
