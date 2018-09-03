@@ -1,2 +1,9 @@
-<h1>Trips#index</h1>
-<p>Find me in app/views/trips/index.html.erb</p>
+<h1>Trips</h1>
+
+<% @trips.each do |trip| %>
+  <div>
+    <h3><%= link_to("#{trip.city.name}", city_path(trip.city.name)) %> Trip</h3>
+    <p>Created by: <%= link_to("#{trip.user.username}", user_path(trip.user.username)) %></p>
+    <p>Length of Trip: <%= trip.length_of_trip %></p>
+  </div>
+<% end %>
