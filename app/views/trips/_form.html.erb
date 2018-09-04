@@ -1,0 +1,40 @@
+<%= form_for @trip do |f| %>
+  <% if @user.errors.any? %>
+    <div>
+      <h2>
+        The following <%= pluralize(@user.errors.count, "error") %> kept this from being saved:
+      </h2>
+
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.fields_for :country, @country do |country_field| %>
+    <%= country_field.label :name %>
+    <%= country_field.text_field :name %>
+    <br>
+
+    <%= country_field.label :native_language %>
+    <%= country_field.text_field :native_language %>
+  <% end %>
+
+  <%= f.fields_for :city, @city do |city_field| %>
+    <%= city_field.label :name %>
+    <%= city_field.text_field :name %>
+    <br>
+
+    <%= city_field.label :travel_advice %>
+    <%= city_field.text_area :travel_advice %>
+    <br>
+
+    <%= city_field.label :tourist_rating %>
+    <%= city_field.range_field :tourist_rating, :in => 0..10 %>
+  <% end %>
+
+  <%= f.label :length_of_trip %>
+  <%= f.text_field :length_of_trip %>
+<% end %>
