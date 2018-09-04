@@ -1,11 +1,14 @@
 class CountriesController < ApplicationController
   def new
+    @country = Country.new
   end
 
   def index
+    @countries = Country.all
   end
 
   def show
+    @country = Country.find(params[:id])
   end
 
   private
