@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   resources :users
   resources :trips do
-    resources :countries, :cities
+    resources :countries do
+      resources :cities
+    end
   end
 
   get '/signin', to: 'sessions#new'
