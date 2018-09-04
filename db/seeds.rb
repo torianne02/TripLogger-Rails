@@ -18,18 +18,18 @@ City.create(name: 'Moab')
 
 Country.create(name: 'USA', native_language: 'English')
 
-Trip.create(length_of_visit: '1 day', city_id: 1, user_id: 1, country_id: 1)
+Trip.create(length_of_trip: '1 day', city_id: 1, user_id: 1, country_id: 1)
 
-Trip.create(length_of_visit: '3 days', city_id: 2, user_id: 1, country_id: 1)
+Trip.create(length_of_trip: '3 days', city_id: 2, user_id: 1, country_id: 1)
 
-Trip.create(length_of_visit: '4 days', city_id: 3, user_id: 2, country_id: 1)
+Trip.create(length_of_trip: '4 days', city_id: 3, user_id: 2, country_id: 1)
 
-Trip.create(length_of_visit: '2 days', city_id: 4, user_id: 3, country_id: 1)
+Trip.create(length_of_trip: '2 days', city_id: 4, user_id: 3, country_id: 1)
 
-Trip.create(length_of_visit: '2 days', city_id: 5, user_id: 2, country_id: 1)
+Trip.create(length_of_trip: '2 days', city_id: 5, user_id: 2, country_id: 1)
 
-Trip.create(length_of_visit: '1 week', city_id: 2, user_id: 4, country_id: 1)
+Trip.create(length_of_trip: '1 week', city_id: 2, user_id: 4, country_id: 1)
 
-Trip.create(length_of_visit: '2 months', city_id: 4, user_id: 4, country_id: 1)
+Trip.create(length_of_trip: '2 months', city_id: 4, user_id: 4, country_id: 1)
 
-Trip.create(length_of_visit: '6 days', city_id: 3, user_id: 3, country_id: 1)
+Trip.create(length_of_trip: '6 days', city_id: 3, user_id: 3, country_id: 1)
