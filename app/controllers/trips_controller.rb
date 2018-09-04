@@ -1,18 +1,22 @@
 class TripsController < ApplicationController
+  before_action :set_user
   before_action :set_trip, only: %i[show edit update destroy]
 
   def new
     @trip = Trip.new
+    @city = City.new
+    @country = Country.new
   end
 
   def create
-    @user = current_user
-    # need to get rid of conditional and use method to redirect if not logged in
-    if logged_in?
-      @trip = Trip.new(trip_params)
-      redirect_to trip_path(@trip), notice: 'Trip was successfully created.'
+    @city = City.create(params[:city_attributes])
+    @country = Country.create(params[:country_attributes])
+    @trip = Trip.create(trip_params)
+
+    if @trip.save
+      redirect_to user_trips_url(@user), notice: 'Trip was successfully created.'
     else
-      redirect_to trip_path
+      render :new
     end
   end
 
@@ -21,7 +25,7 @@ class TripsController < ApplicationController
 
   def update
     if @trip.update(trip_params)
-      redirect_to trip_path(@trip), notice: 'Trip was successfully updated.'
+      redirect_to user_trips_url(@user), notice: 'Trip was successfully updated.'
     else
       render :edit
     end
@@ -29,7 +33,7 @@ class TripsController < ApplicationController
 
   def destroy
     @trip.destroy
-    redirect_to trips_url, notice: 'Trip was successfully deleted.'
+    redirect_to user_trips_url(@user), notice: 'Trip was successfully deleted.'
   end
 
   def index
@@ -37,7 +41,6 @@ class TripsController < ApplicationController
   end
 
   def show
-    @user = current_user
     @city = City.find_by(id: @trip.city_id)
     @country = Country.find_by(id: @trip.country_id)
   end
@@ -48,7 +51,18 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
   end
 
+  def set_user
+    @user = User.find(session[:user_id])
+  end
+
   def trip_params
-    params.require(:trip).permit(:user_id, :city_id, :country_id, :length_of_trip)
+    params.require(:trip).permit(
+      :user_id,
+      :city_id,
+      :country_id,
+      :length_of_trip,
+      city_attributes: [:name, :travel_advice, :tourist_rating],
+      country_attributes: [:name, :native_language]
+    )
   end
 end
