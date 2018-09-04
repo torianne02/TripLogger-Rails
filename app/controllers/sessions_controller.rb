@@ -5,12 +5,19 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(id: params[:username])
-    if !user
-      redirect_to root_path
+    @auth = request.env["omniauth.auth"]
+    if @auth
+      @user = User.from_omniauth(request.env["omniauth.auth"])
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
     else
-      session[:user_id] = user.id
-      redirect_to user_path(user)
+      @user = User.find_by(username: params[:username])
+      if @user && @user.authenticate(params[:password])
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
+      else
+        render '/sessions/new', notice: "Username, email, and/or password are incorrect."
+      end
     end
   end
 
