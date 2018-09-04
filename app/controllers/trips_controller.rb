@@ -37,7 +37,11 @@ class TripsController < ApplicationController
   end
 
   def index
-    @trips = Trip.all
+    if current_user
+      @trips = @user.trips
+    else
+      redirect_to root_path
+    end
   end
 
   def show

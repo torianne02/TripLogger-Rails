@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
-  resources :users
-  resources :trips do
-    resources :countries do
-      resources :cities
-    end
+  resources :users do
+    resources :trips
   end
+  resources :countries
+  resources :cities
 
   get '/signin', to: 'sessions#new'
   post '/sessions', to: 'sessions#create'
