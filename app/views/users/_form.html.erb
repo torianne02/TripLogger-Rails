@@ -1,12 +1,29 @@
+<% if @user.errors.any? %>
+  <div>
+    <h2>
+      The following <%= pluralize(@user.errors.count, "error") %> kept this from being saved:
+    </h2>
+
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for @user do |f| %>
   <%= f.label :username %>
   <%= f.text_field :username %>
+  <br>
 
   <%= f.label :email %>
   <%= f.email_field :email %>
+  <br>
 
   <%= f.label :password %>
   <%= f.password_field :password %>
+  <br>
 
   <%= f.submit %>
 <% end %>
