@@ -9,7 +9,7 @@
 Migrating to CreateCities (20180831214905)
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
   ↳ /usr/local/bin/rake:23
-  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "cities" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "length_of_visit" varchar, "travel_advice" text, "tourist_rating" integer)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "cities" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "length_of_trip" varchar, "travel_advice" text, "tourist_rating" integer)[0m
   ↳ db/migrate/20180831214905_create_cities.rb:3
   [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180831214905"]]
   ↳ /usr/local/bin/rake:23
@@ -45,20 +45,20 @@ Migrating to CreateCountries (20180831215408)
 Migrating to RemoveLengthOfVisitFromCities (20180831221446)
   [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
   ↳ /usr/local/bin/rake:23
-  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acities" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "length_of_visit" varchar DEFAULT NULL, "travel_advice" text DEFAULT NULL, "tourist_rating" integer DEFAULT NULL)[0m
-  ↳ db/migrate/20180831221446_remove_length_of_visit_from_cities.rb:3
-  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acities" ("id","name","length_of_visit","travel_advice","tourist_rating")
-                     SELECT "id","name","length_of_visit","travel_advice","tourist_rating" FROM "cities"[0m
-  ↳ db/migrate/20180831221446_remove_length_of_visit_from_cities.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acities" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "length_of_trip" varchar DEFAULT NULL, "travel_advice" text DEFAULT NULL, "tourist_rating" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20180831221446_remove_length_of_trip_from_cities.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acities" ("id","name","length_of_trip","travel_advice","tourist_rating")
+                     SELECT "id","name","length_of_trip","travel_advice","tourist_rating" FROM "cities"[0m
+  ↳ db/migrate/20180831221446_remove_length_of_trip_from_cities.rb:3
   [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "cities"[0m
-  ↳ db/migrate/20180831221446_remove_length_of_visit_from_cities.rb:3
+  ↳ db/migrate/20180831221446_remove_length_of_trip_from_cities.rb:3
   [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "cities" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "travel_advice" text DEFAULT NULL, "tourist_rating" integer DEFAULT NULL)[0m
-  ↳ db/migrate/20180831221446_remove_length_of_visit_from_cities.rb:3
+  ↳ db/migrate/20180831221446_remove_length_of_trip_from_cities.rb:3
   [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "cities" ("id","name","travel_advice","tourist_rating")
                      SELECT "id","name","travel_advice","tourist_rating" FROM "acities"[0m
-  ↳ db/migrate/20180831221446_remove_length_of_visit_from_cities.rb:3
+  ↳ db/migrate/20180831221446_remove_length_of_trip_from_cities.rb:3
   [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "acities"[0m
-  ↳ db/migrate/20180831221446_remove_length_of_visit_from_cities.rb:3
+  ↳ db/migrate/20180831221446_remove_length_of_trip_from_cities.rb:3
   [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180831221446"]]
   ↳ /usr/local/bin/rake:23
   [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
@@ -67,7 +67,7 @@ Migrating to AddLengthOfVisitToTrips (20180831221639)
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
   ↳ /usr/local/bin/rake:23
   [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "trips" ADD "length_of_trip" varchar[0m
-  ↳ db/migrate/20180831221639_add_length_of_visit_to_trips.rb:3
+  ↳ db/migrate/20180831221639_add_length_of_trip_to_trips.rb:3
   [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180831221639"]]
   ↳ /usr/local/bin/rake:23
   [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
@@ -643,7 +643,7 @@ Completed 200 OK in 40ms (Views: 35.6ms | ActiveRecord: 0.2ms)
 Migrating to CreateCities (20180831214905)
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
   ↳ /usr/local/bin/rake:23
-  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "cities" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "length_of_visit" varchar, "travel_advice" text, "tourist_rating" integer)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "cities" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "length_of_trip" varchar, "travel_advice" text, "tourist_rating" integer)[0m
   ↳ db/migrate/20180831214905_create_cities.rb:3
   [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180831214905"]]
   ↳ /usr/local/bin/rake:23
@@ -679,20 +679,20 @@ Migrating to CreateCountries (20180831215408)
 Migrating to RemoveLengthOfVisitFromCities (20180831221446)
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
   ↳ /usr/local/bin/rake:23
-  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acities" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "length_of_visit" varchar DEFAULT NULL, "travel_advice" text DEFAULT NULL, "tourist_rating" integer DEFAULT NULL)[0m
-  ↳ db/migrate/20180831221446_remove_length_of_visit_from_cities.rb:3
-  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acities" ("id","name","length_of_visit","travel_advice","tourist_rating")
-                     SELECT "id","name","length_of_visit","travel_advice","tourist_rating" FROM "cities"[0m
-  ↳ db/migrate/20180831221446_remove_length_of_visit_from_cities.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acities" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "length_of_trip" varchar DEFAULT NULL, "travel_advice" text DEFAULT NULL, "tourist_rating" integer DEFAULT NULL)[0m
+  ↳ db/migrate/20180831221446_remove_length_of_trip_from_cities.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acities" ("id","name","length_of_trip","travel_advice","tourist_rating")
+                     SELECT "id","name","length_of_trip","travel_advice","tourist_rating" FROM "cities"[0m
+  ↳ db/migrate/20180831221446_remove_length_of_trip_from_cities.rb:3
   [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "cities"[0m
-  ↳ db/migrate/20180831221446_remove_length_of_visit_from_cities.rb:3
+  ↳ db/migrate/20180831221446_remove_length_of_trip_from_cities.rb:3
   [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "cities" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "travel_advice" text DEFAULT NULL, "tourist_rating" integer DEFAULT NULL)[0m
-  ↳ db/migrate/20180831221446_remove_length_of_visit_from_cities.rb:3
+  ↳ db/migrate/20180831221446_remove_length_of_trip_from_cities.rb:3
   [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "cities" ("id","name","travel_advice","tourist_rating")
                      SELECT "id","name","travel_advice","tourist_rating" FROM "acities"[0m
-  ↳ db/migrate/20180831221446_remove_length_of_visit_from_cities.rb:3
+  ↳ db/migrate/20180831221446_remove_length_of_trip_from_cities.rb:3
   [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "acities"[0m
-  ↳ db/migrate/20180831221446_remove_length_of_visit_from_cities.rb:3
+  ↳ db/migrate/20180831221446_remove_length_of_trip_from_cities.rb:3
   [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180831221446"]]
   ↳ /usr/local/bin/rake:23
   [1m[35m (6.4ms)[0m  [1m[36mcommit transaction[0m
@@ -701,7 +701,7 @@ Migrating to AddLengthOfVisitToTrips (20180831221639)
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
   ↳ /usr/local/bin/rake:23
   [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "trips" ADD "length_of_trip" varchar[0m
-  ↳ db/migrate/20180831221639_add_length_of_visit_to_trips.rb:3
+  ↳ db/migrate/20180831221639_add_length_of_trip_to_trips.rb:3
   [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180831221639"]]
   ↳ /usr/local/bin/rake:23
   [1m[35m (6.4ms)[0m  [1m[36mcommit transaction[0m
@@ -725,3 +725,1928 @@ Migrating to AddUidToUsers (20180904213941)
   ↳ /usr/local/bin/rake:23
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ /usr/local/bin/rake:23
+Started GET "/" for 127.0.0.1 at 2018-09-04 16:39:29 -0700
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+Completed 404 Not Found in 184ms (ActiveRecord: 3.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=3):
+  
+app/controllers/application_controller.rb:19:in `current_user'
+Started GET "/" for 127.0.0.1 at 2018-09-04 16:39:47 -0700
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+Completed 404 Not Found in 8ms (ActiveRecord: 3.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=3):
+  
+app/controllers/application_controller.rb:19:in `current_user'
+Started GET "/signin" for 127.0.0.1 at 2018-09-04 16:39:59 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+Completed 404 Not Found in 3ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=3):
+  
+app/controllers/application_controller.rb:19:in `current_user'
+Started POST "/__web_console/repl_sessions/562020654d534b00ea69840a1c14d06e/trace" for 127.0.0.1 at 2018-09-04 16:40:12 -0700
+Started GET "/home" for 127.0.0.1 at 2018-09-04 16:41:34 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/home"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/welcome" for 127.0.0.1 at 2018-09-04 16:41:41 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/welcome"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/home" for 127.0.0.1 at 2018-09-04 16:41:51 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/home"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-09-04 16:42:05 -0700
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+Completed 404 Not Found in 4ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=3):
+  
+app/controllers/application_controller.rb:19:in `current_user'
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Create (2.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest") VALUES (?, ?, ?)[0m  [["username", "torianne"], ["email", "torianne@gmail.com"], ["password_digest", "$2a$10$pG/AZ0uhWk9Nfze3Wvs2oeg0e1j6Nt1dRCfruEjs9ym9k.S.XCCYm"]]
+  ↳ db/seeds.rb:1
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:3
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest") VALUES (?, ?, ?)[0m  [["username", "kevcraw"], ["email", "kevcraw@gmail.com"], ["password_digest", "$2a$10$ZLQ25bM8a9h4EVCgv2ys6OiaNlcyliP7/btrAe06Ijp9buOSJs4PS"]]
+  ↳ db/seeds.rb:3
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:3
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:5
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest") VALUES (?, ?, ?)[0m  [["username", "coachflu"], ["email", "coachflu@gmail.com"], ["password_digest", "$2a$10$DpHRs4TJmLN57dvbejB5U.hgG5ecrXviODZO3NO.22mm.qJDfZJGO"]]
+  ↳ db/seeds.rb:5
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:5
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:7
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest") VALUES (?, ?, ?)[0m  [["username", "torrnado"], ["email", "torrnado@gmail.com"], ["password_digest", "$2a$10$GrKBZZtzwHbi7RCYaqJvrOXL3Pmk2a1BtGBMF.lz5J1w8ZdZtXhBu"]]
+  ↳ db/seeds.rb:7
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Create (3.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest") VALUES (?, ?, ?)[0m  [["username", "torianne"], ["email", "torianne@gmail.com"], ["password_digest", "$2a$10$3nTE2M1tmejbbVOL/swE8.pmyHUXLZL9CnQLkhoKKEqWywfOtlROi"]]
+  ↳ db/seeds.rb:1
+  [1m[35m (5.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:3
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest") VALUES (?, ?, ?)[0m  [["username", "kevcraw"], ["email", "kevcraw@gmail.com"], ["password_digest", "$2a$10$tNwYW0R/0s/.nlHYkR/M/.Tpbd3JwrF/qK9.EGCj16hGZEZYObihO"]]
+  ↳ db/seeds.rb:3
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:3
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:5
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest") VALUES (?, ?, ?)[0m  [["username", "coachflu"], ["email", "coachflu@gmail.com"], ["password_digest", "$2a$10$SrGs9sSYhNxifOoITyflge7QsA0tVzIRuB64H8AhCc1eVxN791Vd."]]
+  ↳ db/seeds.rb:5
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:5
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:7
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest") VALUES (?, ?, ?)[0m  [["username", "torrnado"], ["email", "torrnado@gmail.com"], ["password_digest", "$2a$10$APpXMYETGzkNqlK7eKLB6.NruIZssn.QaKlCD0H.NLCZEknKa4h2e"]]
+  ↳ db/seeds.rb:7
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mCountry Create (0.7ms)[0m  [1m[32mINSERT INTO "countries" ("name", "native_language") VALUES (?, ?)[0m  [["name", "USA"], ["native_language", "English"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (4.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (2.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Started GET "/" for 127.0.0.1 at 2018-09-04 16:57:06 -0700
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 1564ms (Views: 1424.6ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2018-09-04 16:57:16 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 226ms (Views: 203.2ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-09-04 16:57:18 -0700
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-09-04 16:57:19 -0700
+Started GET "/auth/facebook/callback?code=AQDkRzc5QW-wlGSOR24Ep_3BtZBJhfv09UpkP5HkqOEvYaJbaSs8yj_x5DuTsMKZauzZEP32yZOCuxJpNcKXJPAXOspmuzVOwcEN9VeJmBZsYqWFE9erjDM7u4i_Hq9DGCtTFA4zI7jO0-AEdSYkBf7TuzM40-3OXA5ZROtWiibr0hFhAVGfYvM4t-78XZ9Ckln4keGL3puCh0kC5rD5cTMZZf7h1uumi96x3s9afO5Its7W5gFM8iuCStxdag6zDtOuSM_sdKG2KHjhqu2FmYc7ZKmHtsxLkPNpiYA2OsyzX6AOB_DuKiQkQE1AZkeHqKYxPXg-iBjuPTdNVvwf7HMTBw5MKrxwXMWcYBgLymI_5w&state=1ba17a672424c79c7e5373516b22fc2029c3fc1c22bf8b23" for 127.0.0.1 at 2018-09-04 16:57:29 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQDkRzc5QW-wlGSOR24Ep_3BtZBJhfv09UpkP5HkqOEvYaJbaSs8yj_x5DuTsMKZauzZEP32yZOCuxJpNcKXJPAXOspmuzVOwcEN9VeJmBZsYqWFE9erjDM7u4i_Hq9DGCtTFA4zI7jO0-AEdSYkBf7TuzM40-3OXA5ZROtWiibr0hFhAVGfYvM4t-78XZ9Ckln4keGL3puCh0kC5rD5cTMZZf7h1uumi96x3s9afO5Its7W5gFM8iuCStxdag6zDtOuSM_sdKG2KHjhqu2FmYc7ZKmHtsxLkPNpiYA2OsyzX6AOB_DuKiQkQE1AZkeHqKYxPXg-iBjuPTdNVvwf7HMTBw5MKrxwXMWcYBgLymI_5w", "state"=>"1ba17a672424c79c7e5373516b22fc2029c3fc1c22bf8b23"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT ?[0m  [["uid", 1903334959725593], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/sessions_controller.rb:10
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 2.6ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"users", :id=>nil}, missing required keys: [:id]):
+  
+app/controllers/sessions_controller.rb:15:in `create'
+Started GET "/auth/facebook/callback?code=AQDkRzc5QW-wlGSOR24Ep_3BtZBJhfv09UpkP5HkqOEvYaJbaSs8yj_x5DuTsMKZauzZEP32yZOCuxJpNcKXJPAXOspmuzVOwcEN9VeJmBZsYqWFE9erjDM7u4i_Hq9DGCtTFA4zI7jO0-AEdSYkBf7TuzM40-3OXA5ZROtWiibr0hFhAVGfYvM4t-78XZ9Ckln4keGL3puCh0kC5rD5cTMZZf7h1uumi96x3s9afO5Its7W5gFM8iuCStxdag6zDtOuSM_sdKG2KHjhqu2FmYc7ZKmHtsxLkPNpiYA2OsyzX6AOB_DuKiQkQE1AZkeHqKYxPXg-iBjuPTdNVvwf7HMTBw5MKrxwXMWcYBgLymI_5w&state=1ba17a672424c79c7e5373516b22fc2029c3fc1c22bf8b23" for 127.0.0.1 at 2018-09-04 16:59:20 -0700
+  
+OAuth2::Error ({"message"=>"This authorization code has been used.", "type"=>"OAuthException", "code"=>100, "fbtrace_id"=>"Dxo71y5R2+2"}: 
+{"error":{"message":"This authorization code has been used.","type":"OAuthException","code":100,"fbtrace_id":"Dxo71y5R2+2"}}):
+  
+oauth2 (1.4.0) lib/oauth2/client.rb:119:in `request'
+oauth2 (1.4.0) lib/oauth2/client.rb:146:in `get_token'
+oauth2 (1.4.0) lib/oauth2/strategy/auth_code.rb:30:in `get_token'
+omniauth-oauth2 (1.5.0) lib/omniauth/strategies/oauth2.rb:89:in `build_access_token'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:110:in `build_access_token'
+omniauth-oauth2 (1.5.0) lib/omniauth/strategies/oauth2.rb:73:in `callback_phase'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:67:in `block in callback_phase'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:131:in `with_authorization_code!'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:66:in `callback_phase'
+omniauth (1.8.1) lib/omniauth/strategy.rb:236:in `callback_call'
+omniauth (1.8.1) lib/omniauth/strategy.rb:188:in `call!'
+omniauth (1.8.1) lib/omniauth/strategy.rb:168:in `call'
+omniauth (1.8.1) lib/omniauth/builder.rb:63:in `call'
+rack (2.0.5) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+actionpack (5.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/auth/facebook/callback?code=AQDkRzc5QW-wlGSOR24Ep_3BtZBJhfv09UpkP5HkqOEvYaJbaSs8yj_x5DuTsMKZauzZEP32yZOCuxJpNcKXJPAXOspmuzVOwcEN9VeJmBZsYqWFE9erjDM7u4i_Hq9DGCtTFA4zI7jO0-AEdSYkBf7TuzM40-3OXA5ZROtWiibr0hFhAVGfYvM4t-78XZ9Ckln4keGL3puCh0kC5rD5cTMZZf7h1uumi96x3s9afO5Its7W5gFM8iuCStxdag6zDtOuSM_sdKG2KHjhqu2FmYc7ZKmHtsxLkPNpiYA2OsyzX6AOB_DuKiQkQE1AZkeHqKYxPXg-iBjuPTdNVvwf7HMTBw5MKrxwXMWcYBgLymI_5w&state=1ba17a672424c79c7e5373516b22fc2029c3fc1c22bf8b23" for 127.0.0.1 at 2018-09-04 17:01:39 -0700
+  
+OAuth2::Error ({"message"=>"This authorization code has been used.", "type"=>"OAuthException", "code"=>100, "fbtrace_id"=>"G9LN79hZmOt"}: 
+{"error":{"message":"This authorization code has been used.","type":"OAuthException","code":100,"fbtrace_id":"G9LN79hZmOt"}}):
+  
+oauth2 (1.4.0) lib/oauth2/client.rb:119:in `request'
+oauth2 (1.4.0) lib/oauth2/client.rb:146:in `get_token'
+oauth2 (1.4.0) lib/oauth2/strategy/auth_code.rb:30:in `get_token'
+omniauth-oauth2 (1.5.0) lib/omniauth/strategies/oauth2.rb:89:in `build_access_token'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:110:in `build_access_token'
+omniauth-oauth2 (1.5.0) lib/omniauth/strategies/oauth2.rb:73:in `callback_phase'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:67:in `block in callback_phase'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:131:in `with_authorization_code!'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:66:in `callback_phase'
+omniauth (1.8.1) lib/omniauth/strategy.rb:236:in `callback_call'
+omniauth (1.8.1) lib/omniauth/strategy.rb:188:in `call!'
+omniauth (1.8.1) lib/omniauth/strategy.rb:168:in `call'
+omniauth (1.8.1) lib/omniauth/builder.rb:63:in `call'
+rack (2.0.5) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+actionpack (5.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/auth/facebook/callback?code=AQDkRzc5QW-wlGSOR24Ep_3BtZBJhfv09UpkP5HkqOEvYaJbaSs8yj_x5DuTsMKZauzZEP32yZOCuxJpNcKXJPAXOspmuzVOwcEN9VeJmBZsYqWFE9erjDM7u4i_Hq9DGCtTFA4zI7jO0-AEdSYkBf7TuzM40-3OXA5ZROtWiibr0hFhAVGfYvM4t-78XZ9Ckln4keGL3puCh0kC5rD5cTMZZf7h1uumi96x3s9afO5Its7W5gFM8iuCStxdag6zDtOuSM_sdKG2KHjhqu2FmYc7ZKmHtsxLkPNpiYA2OsyzX6AOB_DuKiQkQE1AZkeHqKYxPXg-iBjuPTdNVvwf7HMTBw5MKrxwXMWcYBgLymI_5w&state=1ba17a672424c79c7e5373516b22fc2029c3fc1c22bf8b23" for 127.0.0.1 at 2018-09-04 17:08:38 -0700
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  
+OAuth2::Error ({"message"=>"This authorization code has expired.", "type"=>"OAuthException", "code"=>100, "fbtrace_id"=>"C9WYjWfyZeL"}: 
+{"error":{"message":"This authorization code has expired.","type":"OAuthException","code":100,"fbtrace_id":"C9WYjWfyZeL"}}):
+  
+oauth2 (1.4.0) lib/oauth2/client.rb:119:in `request'
+oauth2 (1.4.0) lib/oauth2/client.rb:146:in `get_token'
+oauth2 (1.4.0) lib/oauth2/strategy/auth_code.rb:30:in `get_token'
+omniauth-oauth2 (1.5.0) lib/omniauth/strategies/oauth2.rb:89:in `build_access_token'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:110:in `build_access_token'
+omniauth-oauth2 (1.5.0) lib/omniauth/strategies/oauth2.rb:73:in `callback_phase'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:67:in `block in callback_phase'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:131:in `with_authorization_code!'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:66:in `callback_phase'
+omniauth (1.8.1) lib/omniauth/strategy.rb:236:in `callback_call'
+omniauth (1.8.1) lib/omniauth/strategy.rb:188:in `call!'
+omniauth (1.8.1) lib/omniauth/strategy.rb:168:in `call'
+omniauth (1.8.1) lib/omniauth/builder.rb:63:in `call'
+rack (2.0.5) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+actionpack (5.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-09-04 17:09:21 -0700
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 922ms (Views: 871.2ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-09-04 17:09:25 -0700
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (99.3ms)
+  Rendered users/new.html.erb within layouts/application (189.1ms)
+Completed 200 OK in 319ms (Views: 299.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-09-04 17:09:27 -0700
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-09-04 17:09:27 -0700
+Started GET "/auth/facebook/callback?code=AQCZql7aHosnsmlrZfpkbltNrSrj_UCB33MF0bbPpWS4yoySh_L6GK4haToW_NwW4xyM7oUuOvW5agD6hCghDmsEKroncOMacSanNnub5EFCe1n5f8bJAZyOfHE4s-TP5L9k4OXPAAzD2bGFSe1VZWq0LghMK014xniP3e7-eeulS3v2KLhloUwAU1ZNf6lu8lldc1kLmyRAfg5RXFVGsynfqoqA6pS38ghxaZB9_6LXZJZb8qV9xmsHK94vkC52S4QKcb_0Q_jzr2IkxY03gPPeyee8X6jY77aeSG8_rn5DhD-uMoAqcYhL1JNMe7J3Mr7rqKx3CT6IqEFsnxa3BQfiwc8GZx7JqB-urSYCw7By2A&state=4068f1ce8648ec3d7db691e93c0bcb057243c937f97b4dde" for 127.0.0.1 at 2018-09-04 17:09:27 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQCZql7aHosnsmlrZfpkbltNrSrj_UCB33MF0bbPpWS4yoySh_L6GK4haToW_NwW4xyM7oUuOvW5agD6hCghDmsEKroncOMacSanNnub5EFCe1n5f8bJAZyOfHE4s-TP5L9k4OXPAAzD2bGFSe1VZWq0LghMK014xniP3e7-eeulS3v2KLhloUwAU1ZNf6lu8lldc1kLmyRAfg5RXFVGsynfqoqA6pS38ghxaZB9_6LXZJZb8qV9xmsHK94vkC52S4QKcb_0Q_jzr2IkxY03gPPeyee8X6jY77aeSG8_rn5DhD-uMoAqcYhL1JNMe7J3Mr7rqKx3CT6IqEFsnxa3BQfiwc8GZx7JqB-urSYCw7By2A", "state"=>"4068f1ce8648ec3d7db691e93c0bcb057243c937f97b4dde"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT ?[0m  [["uid", 1903334959725593], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/sessions_controller.rb:10
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 2.9ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"index", :controller=>"trips", :user_id=>nil}, missing required keys: [:user_id]):
+  
+app/controllers/sessions_controller.rb:15:in `create'
+Started GET "/auth/facebook/callback?code=AQCZql7aHosnsmlrZfpkbltNrSrj_UCB33MF0bbPpWS4yoySh_L6GK4haToW_NwW4xyM7oUuOvW5agD6hCghDmsEKroncOMacSanNnub5EFCe1n5f8bJAZyOfHE4s-TP5L9k4OXPAAzD2bGFSe1VZWq0LghMK014xniP3e7-eeulS3v2KLhloUwAU1ZNf6lu8lldc1kLmyRAfg5RXFVGsynfqoqA6pS38ghxaZB9_6LXZJZb8qV9xmsHK94vkC52S4QKcb_0Q_jzr2IkxY03gPPeyee8X6jY77aeSG8_rn5DhD-uMoAqcYhL1JNMe7J3Mr7rqKx3CT6IqEFsnxa3BQfiwc8GZx7JqB-urSYCw7By2A&state=4068f1ce8648ec3d7db691e93c0bcb057243c937f97b4dde" for 127.0.0.1 at 2018-09-04 17:10:15 -0700
+  
+OAuth2::Error ({"message"=>"This authorization code has been used.", "type"=>"OAuthException", "code"=>100, "fbtrace_id"=>"G6AOD2ubGwv"}: 
+{"error":{"message":"This authorization code has been used.","type":"OAuthException","code":100,"fbtrace_id":"G6AOD2ubGwv"}}):
+  
+oauth2 (1.4.0) lib/oauth2/client.rb:119:in `request'
+oauth2 (1.4.0) lib/oauth2/client.rb:146:in `get_token'
+oauth2 (1.4.0) lib/oauth2/strategy/auth_code.rb:30:in `get_token'
+omniauth-oauth2 (1.5.0) lib/omniauth/strategies/oauth2.rb:89:in `build_access_token'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:110:in `build_access_token'
+omniauth-oauth2 (1.5.0) lib/omniauth/strategies/oauth2.rb:73:in `callback_phase'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:67:in `block in callback_phase'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:131:in `with_authorization_code!'
+omniauth-facebook (5.0.0) lib/omniauth/strategies/facebook.rb:66:in `callback_phase'
+omniauth (1.8.1) lib/omniauth/strategy.rb:236:in `callback_call'
+omniauth (1.8.1) lib/omniauth/strategy.rb:188:in `call!'
+omniauth (1.8.1) lib/omniauth/strategy.rb:168:in `call'
+omniauth (1.8.1) lib/omniauth/builder.rb:63:in `call'
+rack (2.0.5) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+actionpack (5.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-09-04 17:10:22 -0700
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-09-04 17:10:22 -0700
+Started GET "/auth/facebook/callback?code=AQDVVDfmxGSmXUTEi_FP5PafybbScZSRqXr6Igo_Rq5bg0KobXDtDKEJcebIovjIDgqAxX_rsO5JSNyCUzcm8BVOQSztz4ULvdouAQNwCNZE0Umk-9AZyKTrRF1kS9Vn2jbVBT1j4jvWLZ-rwzTxn_znhjnlJ9J9XP3Z8gu9bdmhoPMBh0RPhaWWNRpNXWTKiWLdFq5sIn8SYB238oIrHsJWtQZRFP_MCHbq0hjHuJNvMvRCWdumKyfjcdk48coPmAWrcHNlSUJP2DZ5t-3uoYvFnbXn-6JjOXu4e9BNO4fpSD1ODSnlpCGLHe755ORIvxYfUxGnDwWyxHILzkwGxvjK01Mo9_ZieYy8ieZzMQgI2Q&state=cf4a5076f464133bc588b1fb5c1af85127a86a6377106ace" for 127.0.0.1 at 2018-09-04 17:10:23 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQDVVDfmxGSmXUTEi_FP5PafybbScZSRqXr6Igo_Rq5bg0KobXDtDKEJcebIovjIDgqAxX_rsO5JSNyCUzcm8BVOQSztz4ULvdouAQNwCNZE0Umk-9AZyKTrRF1kS9Vn2jbVBT1j4jvWLZ-rwzTxn_znhjnlJ9J9XP3Z8gu9bdmhoPMBh0RPhaWWNRpNXWTKiWLdFq5sIn8SYB238oIrHsJWtQZRFP_MCHbq0hjHuJNvMvRCWdumKyfjcdk48coPmAWrcHNlSUJP2DZ5t-3uoYvFnbXn-6JjOXu4e9BNO4fpSD1ODSnlpCGLHe755ORIvxYfUxGnDwWyxHILzkwGxvjK01Mo9_ZieYy8ieZzMQgI2Q", "state"=>"cf4a5076f464133bc588b1fb5c1af85127a86a6377106ace"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT ?[0m  [["uid", 1903334959725593], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/sessions_controller.rb:10
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 2.4ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"index", :controller=>"trips", :user_id=>nil}, missing required keys: [:user_id]):
+  
+app/controllers/sessions_controller.rb:15:in `create'
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-09-04 17:10:56 -0700
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-09-04 17:10:57 -0700
+Started GET "/auth/facebook/callback?code=AQBJEo9G1H5zY0YS-aRkQOc5KItR9cEDFKhfflbUo23VT4aF3ZQ0rvDQhBZjn_X5wSyA99TavGxoahfrG3IiiHnR9VPuTJPUmQ8RGwXdS3FxMpHP7wKzAHHd7ukoGQnE7EqfGUK3WqR9AQWGknOtqbhMviL7dhAm-x7axvQqoXRk1_pscyvI_LTvUcMDuW6uS2k8Zhh8ylmPMdHgwx7McSuuoMclQGdJ7HFC-CjLhdlFH5WCmVu7PG6OvW1YAP0mTs9L430U5hoIpkc11q7p0CGzyfHS1SZO2fNTnai9mj3UpKdH5EU-lbOvpnU0EvRUtT07yEqgXlvfESjBNFvzDOyPcx2tpQe03W-feiQ9GL5xvA&state=2820c65c31d064dc6eada77972536c9304b7bd902b06fc88" for 127.0.0.1 at 2018-09-04 17:10:57 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQBJEo9G1H5zY0YS-aRkQOc5KItR9cEDFKhfflbUo23VT4aF3ZQ0rvDQhBZjn_X5wSyA99TavGxoahfrG3IiiHnR9VPuTJPUmQ8RGwXdS3FxMpHP7wKzAHHd7ukoGQnE7EqfGUK3WqR9AQWGknOtqbhMviL7dhAm-x7axvQqoXRk1_pscyvI_LTvUcMDuW6uS2k8Zhh8ylmPMdHgwx7McSuuoMclQGdJ7HFC-CjLhdlFH5WCmVu7PG6OvW1YAP0mTs9L430U5hoIpkc11q7p0CGzyfHS1SZO2fNTnai9mj3UpKdH5EU-lbOvpnU0EvRUtT07yEqgXlvfESjBNFvzDOyPcx2tpQe03W-feiQ9GL5xvA", "state"=>"2820c65c31d064dc6eada77972536c9304b7bd902b06fc88"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT ?[0m  [["uid", 1903334959725593], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/sessions_controller.rb:10
+Completed 500 Internal Server Error in 114ms (ActiveRecord: 16.8ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"users", :id=>nil}, missing required keys: [:id]):
+  
+app/controllers/sessions_controller.rb:15:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-09-04 17:11:52 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XTrjyMLEosKqHhZn4S8UXzTckXBuBgk+/ZGFKiS8wdnBtvpoW1SYN2F7YEgIhZpUIoyjnQOOare/d80yq+Wjdg==", "user"=>{"username"=>"mrgrey", "email"=>"mrgrey@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10
+  [1m[36mUser Create (10.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest") VALUES (?, ?, ?)[0m  [["username", "mrgrey"], ["email", "mrgrey@gmail.com"], ["password_digest", "$2a$10$iL88FpjEblfNBGZ0yJ/d3.XsL0hA4MdaObbbkquoue1pkEim0XvQy"]]
+  ↳ app/controllers/users_controller.rb:10
+  [1m[35m (24.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10
+Redirected to http://localhost:3000/users/9
+Completed 302 Found in 201ms (ActiveRecord: 35.7ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2018-09-04 17:11:52 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:36
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 258ms (Views: 238.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/trips/new" for 127.0.0.1 at 2018-09-04 17:13:20 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/users/trips/new"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/users/9/trips/new" for 127.0.0.1 at 2018-09-04 17:13:31 -0700
+Processing by TripsController#new as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/new.html.erb within layouts/application
+  Rendered trips/_form.html.erb (284.0ms)
+  Rendered trips/new.html.erb within layouts/application (310.0ms)
+Completed 500 Internal Server Error in 425ms (ActiveRecord: 5.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `trips_path' for #<#<Class:0x00007fa9328ebda8>:0x00007fa92f51f7b8>
+Did you mean?  countries_path):
+    1: <%= form_for @trip do |f| %>
+    2:   <% if @user.errors.any? %>
+    3:     <div>
+    4:       <h2>
+  
+app/views/trips/_form.html.erb:1:in `_app_views_trips__form_html_erb___3894273230931747009_70182298131720'
+app/views/trips/new.html.erb:3:in `_app_views_trips_new_html_erb__1424212333658599706_70182337219260'
+Started GET "/users/9/trips/new" for 127.0.0.1 at 2018-09-04 17:14:51 -0700
+Processing by TripsController#new as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/new.html.erb within layouts/application
+  Rendered trips/_form.html.erb (123.4ms)
+  Rendered trips/new.html.erb within layouts/application (127.1ms)
+Completed 200 OK in 279ms (Views: 268.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/9/trips/new" for 127.0.0.1 at 2018-09-04 17:16:52 -0700
+Processing by TripsController#new as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/new.html.erb within layouts/application
+  Rendered trips/_form.html.erb (20.6ms)
+  Rendered trips/new.html.erb within layouts/application (27.2ms)
+Completed 200 OK in 237ms (Views: 227.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/9/trips/new" for 127.0.0.1 at 2018-09-04 17:17:21 -0700
+Processing by TripsController#new as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/new.html.erb within layouts/application
+  Rendered trips/_form.html.erb (18.1ms)
+  Rendered trips/new.html.erb within layouts/application (23.2ms)
+Completed 200 OK in 177ms (Views: 167.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/9/trips/new" for 127.0.0.1 at 2018-09-04 17:19:23 -0700
+Processing by TripsController#new as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/new.html.erb within layouts/application
+  Rendered trips/_form.html.erb (6.0ms)
+  Rendered trips/new.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 184ms (Views: 177.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/9/trips/new" for 127.0.0.1 at 2018-09-04 17:20:11 -0700
+Processing by TripsController#new as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/new.html.erb within layouts/application
+  Rendered trips/_form.html.erb (9.9ms)
+  Rendered trips/new.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 207ms (Views: 197.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/9/trips/new" for 127.0.0.1 at 2018-09-04 17:20:26 -0700
+Processing by TripsController#new as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/new.html.erb within layouts/application
+  Rendered trips/_form.html.erb (9.7ms)
+  Rendered trips/new.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 291ms (Views: 281.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/9/trips/new" for 127.0.0.1 at 2018-09-04 17:20:57 -0700
+Processing by TripsController#new as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/new.html.erb within layouts/application
+  Rendered trips/_form.html.erb (3.0ms)
+  Rendered trips/new.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 186ms (Views: 176.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/9/trips/new" for 127.0.0.1 at 2018-09-04 17:21:17 -0700
+Processing by TripsController#new as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/new.html.erb within layouts/application
+  Rendered trips/_form.html.erb (4.9ms)
+  Rendered trips/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 162ms (Views: 151.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/9/trips/new" for 127.0.0.1 at 2018-09-04 17:21:48 -0700
+Processing by TripsController#new as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/new.html.erb within layouts/application
+  Rendered trips/_form.html.erb (13.2ms)
+  Rendered trips/new.html.erb within layouts/application (20.2ms)
+Completed 200 OK in 204ms (Views: 196.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/9/trips/new" for 127.0.0.1 at 2018-09-04 17:22:04 -0700
+Processing by TripsController#new as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/new.html.erb within layouts/application
+  Rendered trips/_form.html.erb (4.2ms)
+  Rendered trips/new.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 247ms (Views: 240.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/9/trips" for 127.0.0.1 at 2018-09-04 17:22:32 -0700
+Processing by TripsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SQNQuyc6EJyJWwlWJuDmETNJnYQInjg4/fnytlJpPinVj0kbvqoqaUI+f3nPSmgaJRmvaWUWW7G/H7qu3TBchg==", "trip"=>{"user_id"=>"", "country_attributes"=>{"name"=>"USA", "native_language"=>"English"}, "city_attributes"=>{"name"=>"Los Angeles", "travel_advice"=>"Beware of crowded areas.", "tourist_rating"=>"3"}, "length_of_trip"=>"2 days"}, "commit"=>"Create Trip", "user_id"=>"9"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trips_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/trips_controller.rb:12
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trips_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/trips_controller.rb:13
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."name" = ? LIMIT ?[0m  [["name", "Los Angeles"], ["LIMIT", 1]]
+  ↳ app/models/trip.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/trip.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/models/trip.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/trip.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/models/trip.rb:12
+  [1m[36mCountry Load (0.4ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."name" = ? LIMIT ?[0m  [["name", "USA"], ["LIMIT", 1]]
+  ↳ app/models/trip.rb:17
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/trip.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/trip.rb:18
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trips_controller.rb:14
+  [1m[36mCountry Load (0.8ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:14
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/trips_controller.rb:14
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trips_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/trips_controller.rb:16
+  Rendering trips/new.html.erb within layouts/application
+  Rendered trips/_form.html.erb (6.4ms)
+  Rendered trips/new.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 431ms (Views: 207.9ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/users/9/trips" for 127.0.0.1 at 2018-09-04 17:22:48 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/index.html.erb within layouts/application
+  [1m[36mTrip Load (0.9ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/views/trips/index.html.erb:3
+  Rendered trips/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 289ms (Views: 223.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/9/trips" for 127.0.0.1 at 2018-09-04 17:23:28 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/index.html.erb within layouts/application
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/views/trips/index.html.erb:3
+  Rendered trips/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 153ms (Views: 142.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/9/trips/new" for 127.0.0.1 at 2018-09-04 19:40:25 -0700
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by TripsController#new as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/new.html.erb within layouts/application
+  Rendered trips/_form.html.erb (94.7ms)
+  Rendered trips/new.html.erb within layouts/application (101.0ms)
+Completed 200 OK in 686ms (Views: 597.8ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/users/9/trips" for 127.0.0.1 at 2018-09-04 19:41:02 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/index.html.erb within layouts/application
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/views/trips/index.html.erb:3
+  Rendered trips/index.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 85ms (Views: 53.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2018-09-04 19:41:10 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:36
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 85ms (Views: 75.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2018-09-04 19:41:22 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:36
+Completed 404 Not Found in 4ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=edit):
+  
+app/controllers/users_controller.rb:36:in `set_user'
+Started GET "/users/edit" for 127.0.0.1 at 2018-09-04 19:42:40 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:36
+Completed 404 Not Found in 18ms (ActiveRecord: 1.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=edit):
+  
+app/controllers/users_controller.rb:36:in `set_user'
+Started GET "/users/9/edit" for 127.0.0.1 at 2018-09-04 19:43:12 -0700
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:36
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (20.6ms)
+  Rendered users/edit.html.erb within layouts/application (27.1ms)
+Completed 200 OK in 83ms (Views: 74.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/9/edit" for 127.0.0.1 at 2018-09-04 19:43:22 -0700
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:36
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (6.6ms)
+  Rendered users/edit.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 71ms (Views: 47.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users/9/edit" for 127.0.0.1 at 2018-09-04 19:43:48 -0700
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:36
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (3.8ms)
+  Rendered users/edit.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 73ms (Views: 67.5ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/users/9" for 127.0.0.1 at 2018-09-04 19:44:07 -0700
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AEkJ2OX4MncoSdC9Hcc5TyVygXfaICOcY5AGMIgD99KcxRB4fGgIguMsppL0bbdEMyKzmreoQBUhdk4oB1qVfQ==", "user"=>{"username"=>"mrgrey", "email"=>"mrgrey@aol.com", "password"=>"[FILTERED]"}, "commit"=>"Update User", "id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:36
+  [1m[36mCACHE User Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "email" = ?, "password_digest" = ? WHERE "users"."id" = ?[0m  [["email", "mrgrey@aol.com"], ["password_digest", "$2a$10$HSod4Zv90GSSnkra8ECxR.iVmcZCMACILiXbVJx7uE7qs0tCoVqEK"], ["id", 9]]
+  ↳ app/controllers/users_controller.rb:23
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23
+Redirected to http://localhost:3000/users/9
+Completed 302 Found in 104ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2018-09-04 19:44:07 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:36
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 51ms (Views: 44.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/9/edit" for 127.0.0.1 at 2018-09-04 19:44:13 -0700
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:36
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (5.6ms)
+  Rendered users/edit.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 62ms (Views: 56.8ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/users/9" for 127.0.0.1 at 2018-09-04 19:44:24 -0700
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"l0sOA9vKobSmjq1JRvlwaPWPgS1MAbpsdhdVVA/0kAALxxejQlqbQW3r22avU/5j49+zwCGJ2eU08R1MgK3yrw==", "user"=>{"username"=>"MrGrey", "email"=>"mrgrey@aol.com", "password"=>"[FILTERED]"}, "commit"=>"Update User", "id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:36
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE "users" SET "username" = ?, "password_digest" = ? WHERE "users"."id" = ?[0m  [["username", "MrGrey"], ["password_digest", "$2a$10$em/IIo1529XXm8fsD.fFZu3YAQJGHsVhgP87NNTXDEyTH6APeGwEK"], ["id", 9]]
+  ↳ app/controllers/users_controller.rb:23
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23
+Redirected to http://localhost:3000/users/9
+Completed 302 Found in 120ms (ActiveRecord: 4.8ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2018-09-04 19:44:24 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:36
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 85ms (Views: 70.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/9/trips" for 127.0.0.1 at 2018-09-04 19:44:33 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/index.html.erb within layouts/application
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/views/trips/index.html.erb:3
+  Rendered trips/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 67ms (Views: 53.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/9/trips" for 127.0.0.1 at 2018-09-04 19:46:44 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/index.html.erb within layouts/application
+  [1m[36mTrip Load (0.1ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/views/trips/index.html.erb:3
+  Rendered trips/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 47ms (Views: 42.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/9/trips/new" for 127.0.0.1 at 2018-09-04 19:46:54 -0700
+Processing by TripsController#new as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/new.html.erb within layouts/application
+  Rendered trips/_form.html.erb (7.1ms)
+  Rendered trips/new.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 94ms (Views: 52.3ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/users/9/trips" for 127.0.0.1 at 2018-09-04 19:47:22 -0700
+Processing by TripsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XK4wFAATgzf+hlZi1IjjD9AJ19ZhFGhqGujOuBXWQHDAIim0mYO5wjXjIE09Im0ExlnlOwycC+NYDoagmo8i3w==", "trip"=>{"user_id"=>"", "country_attributes"=>{"name"=>"USA", "native_language"=>"English"}, "city_attributes"=>{"name"=>"San Francisco", "travel_advice"=>"Lots of homeless people. ", "tourist_rating"=>"2"}, "length_of_trip"=>"1 week"}, "commit"=>"Create Trip", "user_id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trips_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/trips_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trips_controller.rb:13
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/trips_controller.rb:13
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."name" = ? LIMIT ?[0m  [["name", "San Francisco"], ["LIMIT", 1]]
+  ↳ app/models/trip.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/trip.rb:11
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/models/trip.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/trip.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/models/trip.rb:12
+  [1m[36mCountry Load (0.4ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."name" = ? LIMIT ?[0m  [["name", "USA"], ["LIMIT", 1]]
+  ↳ app/models/trip.rb:17
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/trip.rb:18
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/trip.rb:18
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trips_controller.rb:14
+  [1m[36mCountry Load (0.4ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:14
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/trips_controller.rb:14
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trips_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/trips_controller.rb:16
+  Rendering trips/new.html.erb within layouts/application
+  Rendered trips/_form.html.erb (2.9ms)
+  Rendered trips/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 105ms (Views: 51.8ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/users/9/trips" for 127.0.0.1 at 2018-09-04 19:47:36 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/index.html.erb within layouts/application
+  [1m[36mTrip Load (0.6ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/views/trips/index.html.erb:3
+  Rendered trips/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 57ms (Views: 50.7ms | ActiveRecord: 0.9ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest") VALUES (?, ?, ?)[0m  [["username", "tori"], ["email", "tori@aol.com"], ["password_digest", "$2a$10$qL7RzrxtIkeUD21HtZiXBu8gpeZRin7EUh4A3WCnxpCLvICwWPR3."]]
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."user_id" = ? LIMIT ?[0m  [["user_id", 10], ["LIMIT", 11]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to CreateCities (20180831214905)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "cities" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "travel_advice" text, "tourist_rating" integer)[0m
+  ↳ db/migrate/20180831214905_create_cities.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180831214905"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to CreateUsers (20180831215013)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "email" varchar, "password_digest" varchar, "uid" varchar)[0m
+  ↳ db/migrate/20180831215013_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180831215013"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to CreateTrips (20180831215251)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "trips" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "city_id" integer, "country_id" integer, "length_of_trip" varchar)[0m
+  ↳ db/migrate/20180831215251_create_trips.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180831215251"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to CreateCountries (20180831215408)
+  [1m[35m (0.7ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "countries" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "native_language" varchar)[0m
+  ↳ db/migrate/20180831215408_create_countries.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180831215408"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-09-05 03:10:58.016513"], ["updated_at", "2018-09-05 03:10:58.016513"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Started GET "/" for 127.0.0.1 at 2018-09-04 20:11:32 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+Completed 404 Not Found in 54ms (ActiveRecord: 1.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=9):
+  
+app/controllers/application_controller.rb:19:in `current_user'
+Started GET "/" for 127.0.0.1 at 2018-09-04 20:11:40 -0700
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+Completed 404 Not Found in 3ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=9):
+  
+app/controllers/application_controller.rb:19:in `current_user'
+Started GET "/" for 127.0.0.1 at 2018-09-04 20:13:05 -0700
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=9):
+  
+app/controllers/application_controller.rb:19:in `current_user'
+Started GET "/" for 127.0.0.1 at 2018-09-04 20:13:10 -0700
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+Completed 404 Not Found in 2ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=9):
+  
+app/controllers/application_controller.rb:19:in `current_user'
+Started GET "/home" for 127.0.0.1 at 2018-09-04 20:13:18 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/home"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-09-04 20:13:24 -0700
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=9):
+  
+app/controllers/application_controller.rb:19:in `current_user'
+Started GET "/users/new" for 127.0.0.1 at 2018-09-04 20:13:52 -0700
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=9):
+  
+app/controllers/application_controller.rb:19:in `current_user'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:1
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest") VALUES (?, ?, ?)[0m  [["username", "torianne"], ["email", "torianne@gmail.com"], ["password_digest", "$2a$10$wqgxyYNs3VKSeXqXmr0Jpey/RZ62JXzM2.DwdEwD8f6yGhyUrMhtG"]]
+  ↳ db/seeds.rb:1
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:1
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:3
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest") VALUES (?, ?, ?)[0m  [["username", "kevcraw"], ["email", "kevcraw@gmail.com"], ["password_digest", "$2a$10$g7ourqE5ZBrqetUXIRNcd.XwjlCOxAgLehIVy4d4rfVItuY1flznS"]]
+  ↳ db/seeds.rb:3
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:3
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:5
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest") VALUES (?, ?, ?)[0m  [["username", "coachflu"], ["email", "coachflu@gmail.com"], ["password_digest", "$2a$10$GNXcU4LVW7gc0/rtVNf5TOcNv4lsoCwk.NF22eojD.pqd76pr7sei"]]
+  ↳ db/seeds.rb:5
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:5
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:7
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest") VALUES (?, ?, ?)[0m  [["username", "torrnado"], ["email", "torrnado@gmail.com"], ["password_digest", "$2a$10$zB4cWmFYGdODJsd3OXnXru4o1avyRvQw9PGTW6Faj.6j8lM2.CNra"]]
+  ↳ db/seeds.rb:7
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:7
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:13
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[36mCountry Create (0.8ms)[0m  [1m[32mINSERT INTO "countries" ("name", "native_language") VALUES (?, ?)[0m  [["name", "USA"], ["native_language", "English"]]
+  ↳ db/seeds.rb:19
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/seeds.rb:19
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:21
+  [1m[36mCountry Load (0.2ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:21
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:21
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:21
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mCountry Load (0.1ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:23
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:23
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:25
+  [1m[36mCountry Load (0.1ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:25
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:25
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mCountry Load (0.1ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:27
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:27
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:29
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mCountry Load (0.1ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:29
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:29
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:31
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mCountry Load (0.1ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:31
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:31
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:33
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mCountry Load (0.1ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:33
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:33
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/seeds.rb:35
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:35
+  [1m[36mCountry Load (0.2ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:35
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:35
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ db/seeds.rb:35
+Started GET "/users/new" for 127.0.0.1 at 2018-09-04 20:14:30 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+Completed 404 Not Found in 28ms (ActiveRecord: 0.9ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=9):
+  
+app/controllers/application_controller.rb:19:in `current_user'
+Started GET "/" for 127.0.0.1 at 2018-09-04 20:14:37 -0700
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+Completed 404 Not Found in 3ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=9):
+  
+app/controllers/application_controller.rb:19:in `current_user'
+Started GET "/users/9" for 127.0.0.1 at 2018-09-04 20:14:56 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+Completed 404 Not Found in 2ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=9):
+  
+app/controllers/application_controller.rb:19:in `current_user'
+Started GET "/users/2" for 127.0.0.1 at 2018-09-04 20:15:02 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+Completed 404 Not Found in 4ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=9):
+  
+app/controllers/application_controller.rb:19:in `current_user'
+Started PUT "/__web_console/repl_sessions/4d76921759be4bacdcaf8a25f8dd7f55" for 127.0.0.1 at 2018-09-04 20:15:35 -0700
+Started PUT "/__web_console/repl_sessions/4d76921759be4bacdcaf8a25f8dd7f55" for 127.0.0.1 at 2018-09-04 20:15:36 -0700
+Started PUT "/__web_console/repl_sessions/4d76921759be4bacdcaf8a25f8dd7f55" for 127.0.0.1 at 2018-09-04 20:15:40 -0700
+Started PUT "/__web_console/repl_sessions/4d76921759be4bacdcaf8a25f8dd7f55" for 127.0.0.1 at 2018-09-04 20:15:49 -0700
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+Started POST "/__web_console/repl_sessions/4d76921759be4bacdcaf8a25f8dd7f55/trace" for 127.0.0.1 at 2018-09-04 20:17:02 -0700
+Started POST "/__web_console/repl_sessions/4d76921759be4bacdcaf8a25f8dd7f55/trace" for 127.0.0.1 at 2018-09-04 20:17:17 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to CreateCities (20180831214905)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "cities" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "travel_advice" text, "tourist_rating" integer)[0m
+  ↳ db/migrate/20180831214905_create_cities.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180831214905"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to CreateUsers (20180831215013)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "email" varchar, "password_digest" varchar, "uid" varchar)[0m
+  ↳ db/migrate/20180831215013_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180831215013"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (3.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to CreateTrips (20180831215251)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "trips" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "city_id" integer, "country_id" integer, "length_of_trip" varchar)[0m
+  ↳ db/migrate/20180831215251_create_trips.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180831215251"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+Migrating to CreateCountries (20180831215408)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "countries" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "native_language" varchar)[0m
+  ↳ db/migrate/20180831215408_create_countries.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180831215408"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-09-05 03:18:12.407606"], ["updated_at", "2018-09-05 03:18:12.407606"]]
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (6.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /usr/local/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/bin/rake:23
+Started GET "/" for 127.0.0.1 at 2018-09-04 20:18:33 -0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+Completed 404 Not Found in 38ms (ActiveRecord: 1.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=9):
+  
+app/controllers/application_controller.rb:19:in `current_user'
+Started GET "/" for 127.0.0.1 at 2018-09-04 20:18:42 -0700
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=9):
+  
+app/controllers/application_controller.rb:19:in `current_user'
+Started GET "/" for 127.0.0.1 at 2018-09-04 20:18:52 -0700
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+Completed 404 Not Found in 2ms (ActiveRecord: 0.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=9):
+  
+app/controllers/application_controller.rb:19:in `current_user'
+Started PUT "/__web_console/repl_sessions/44fa74f080f928a268f7a6a67ac04d8f" for 127.0.0.1 at 2018-09-04 20:19:11 -0700
+Started PUT "/__web_console/repl_sessions/44fa74f080f928a268f7a6a67ac04d8f" for 127.0.0.1 at 2018-09-04 20:19:15 -0700
+Started GET "/" for 127.0.0.1 at 2018-09-04 20:19:50 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 493ms (Views: 484.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-09-04 20:19:57 -0700
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+Completed 404 Not Found in 30ms (ActiveRecord: 6.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=9):
+  
+app/controllers/application_controller.rb:19:in `current_user'
+Started GET "/users/new" for 127.0.0.1 at 2018-09-04 20:21:45 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (62.6ms)
+  Rendered users/new.html.erb within layouts/application (66.0ms)
+Completed 200 OK in 171ms (Views: 146.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-09-04 20:21:51 -0700
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-09-04 20:21:51 -0700
+Started GET "/auth/facebook/callback?code=AQB0zbFWMvr7OR3rLdM04HihDOEkeyZN3Rfmecat96NKrEZbUDmljUlnwQhXBe9RckjrrvUCs4jex-jdlU6r0F41dbnbgUhzY9juCJIWNvt8NgmFwWP63WVe2Ma8iDPrxIuNk1KjVKjAEWe56_4DHvl-JroxlRxypA4Q84PXV6Lg4FfNRANwL_dL0qkk20w_6MOcL50U4SV2nkR5nzbolTBujJ9q12SQs20nZtoNiMjy-KJxTacswqPnMejWkPymaI8Z7YpKgNMiebrF3GwkbWNQs5Uy01WcLinmdkXn0dllRVQlpKc3vq21a1EJPLpDmS7dDjnXI1rk1-xKySjjbr_mU4ENoiHgDdwCP58npz3bcg&state=d2ded6208908c933ce7efa90e7be3b0fb6d480da94fc2589" for 127.0.0.1 at 2018-09-04 20:21:52 -0700
+Processing by SessionsController#create_oath as HTML
+  Parameters: {"code"=>"AQB0zbFWMvr7OR3rLdM04HihDOEkeyZN3Rfmecat96NKrEZbUDmljUlnwQhXBe9RckjrrvUCs4jex-jdlU6r0F41dbnbgUhzY9juCJIWNvt8NgmFwWP63WVe2Ma8iDPrxIuNk1KjVKjAEWe56_4DHvl-JroxlRxypA4Q84PXV6Lg4FfNRANwL_dL0qkk20w_6MOcL50U4SV2nkR5nzbolTBujJ9q12SQs20nZtoNiMjy-KJxTacswqPnMejWkPymaI8Z7YpKgNMiebrF3GwkbWNQs5Uy01WcLinmdkXn0dllRVQlpKc3vq21a1EJPLpDmS7dDjnXI1rk1-xKySjjbr_mU4ENoiHgDdwCP58npz3bcg", "state"=>"d2ded6208908c933ce7efa90e7be3b0fb6d480da94fc2589"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+Completed 404 Not Found in 4ms (ActiveRecord: 0.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=9):
+  
+app/controllers/application_controller.rb:19:in `current_user'
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-09-04 20:23:00 -0700
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-09-04 20:23:01 -0700
+Started GET "/auth/facebook/callback?code=AQDWbwX3V0x4by-wWCGyptTOKDAEsayk3fJz2jCbQt9sHOV82dzjmuCVc9dzdgt7uxXSJMEOEtd1Bz0t7g-nUBOYVB3CO0XdI-w8opdZjfI9cRXEkxdZZ7rFG7FEubpL1OE2EG4SY6Hkh3gQKB9uinkklVRrKnLw64Z4yNU1Af9xDxSw6hBAbZQumvnUYlFFbrVn_mUYYUL1LVhIUjLGXDI-gOhK2zjpIpvBdM1PsZltrQJf6PnqYp3sPGniEMaxAf2ynqd6VFYTHzF5GdYf4Y3Z37P7bmVM2xKttrhVaYLPSO20fKOaWC5TPkuzfyKL4gEYTrb0j628wTW1b_PmsgcfM2THMhbcMFXcGJGpt3ze4Q&state=099d1e449dba75bf8a623b1f5c3ca3e5b46d3b7f05356c0f" for 127.0.0.1 at 2018-09-04 20:23:01 -0700
+Processing by SessionsController#create_oath as HTML
+  Parameters: {"code"=>"AQDWbwX3V0x4by-wWCGyptTOKDAEsayk3fJz2jCbQt9sHOV82dzjmuCVc9dzdgt7uxXSJMEOEtd1Bz0t7g-nUBOYVB3CO0XdI-w8opdZjfI9cRXEkxdZZ7rFG7FEubpL1OE2EG4SY6Hkh3gQKB9uinkklVRrKnLw64Z4yNU1Af9xDxSw6hBAbZQumvnUYlFFbrVn_mUYYUL1LVhIUjLGXDI-gOhK2zjpIpvBdM1PsZltrQJf6PnqYp3sPGniEMaxAf2ynqd6VFYTHzF5GdYf4Y3Z37P7bmVM2xKttrhVaYLPSO20fKOaWC5TPkuzfyKL4gEYTrb0j628wTW1b_PmsgcfM2THMhbcMFXcGJGpt3ze4Q", "state"=>"099d1e449dba75bf8a623b1f5c3ca3e5b46d3b7f05356c0f"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT ?[0m  [["uid", "1903334959725593"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/sessions_controller.rb:20
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:24
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "uid") VALUES (?, ?, ?)[0m  [["username", "Victoria Fluharty"], ["email", "torianne26@gmail.com"], ["uid", "1903334959725593"]]
+  ↳ app/controllers/sessions_controller.rb:24
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:24
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 37ms (ActiveRecord: 5.7ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-09-04 20:23:01 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:36
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 117ms (Views: 101.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-09-04 20:23:23 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:36
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 58ms (Views: 53.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1/trips" for 127.0.0.1 at 2018-09-04 20:23:43 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/index.html.erb within layouts/application
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/trips/index.html.erb:3
+  Rendered trips/index.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 144ms (Views: 86.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/1/trips" for 127.0.0.1 at 2018-09-04 20:24:19 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/index.html.erb within layouts/application
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/trips/index.html.erb:3
+  Rendered trips/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 75ms (Views: 68.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/1/trips/new" for 127.0.0.1 at 2018-09-04 20:24:27 -0700
+Processing by TripsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/new.html.erb within layouts/application
+  Rendered trips/_form.html.erb (40.8ms)
+  Rendered trips/new.html.erb within layouts/application (43.7ms)
+Completed 200 OK in 140ms (Views: 88.0ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/users/1/trips" for 127.0.0.1 at 2018-09-04 20:24:49 -0700
+Processing by TripsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mEU4AQg73I4dg900ygnjUmbBC0MLAWGvlbQjODCyXCEEySGhkavme9bmqxsjo21ZcJE5rmaJAibXUmsgv+s+jg==", "trip"=>{"user_id"=>"", "country_attributes"=>{"name"=>"USA", "native_language"=>"English"}, "city_attributes"=>{"name"=>"Los Angeles", "travel_advice"=>"Lots of sun and warmth!", "tourist_rating"=>"5"}, "length_of_trip"=>"2 days"}, "commit"=>"Create Trip", "user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trips_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/trips_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trips_controller.rb:13
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/trips_controller.rb:13
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."name" = ? LIMIT ?[0m  [["name", "Los Angeles"], ["LIMIT", 1]]
+  ↳ app/models/trip.rb:11
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/trip.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/models/trip.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/trip.rb:12
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/models/trip.rb:12
+  [1m[36mCountry Load (1.4ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."name" = ? LIMIT ?[0m  [["name", "USA"], ["LIMIT", 1]]
+  ↳ app/models/trip.rb:17
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/trip.rb:17
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/models/trip.rb:17
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/trip.rb:18
+  [1m[36mCountry Create (0.8ms)[0m  [1m[32mINSERT INTO "countries" ("name", "native_language") VALUES (?, ?)[0m  [["name", "USA"], ["native_language", "English"]]
+  ↳ app/models/trip.rb:18
+  [1m[35m (6.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/trip.rb:18
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trips_controller.rb:14
+  [1m[36mCountry Load (0.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:14
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/trips_controller.rb:14
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trips_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/trips_controller.rb:16
+  Rendering trips/new.html.erb within layouts/application
+  Rendered trips/_form.html.erb (4.0ms)
+  Rendered trips/new.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 144ms (Views: 73.3ms | ActiveRecord: 11.6ms)
+
+
+Started GET "/users/1/trips" for 127.0.0.1 at 2018-09-04 20:25:02 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/index.html.erb within layouts/application
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/trips/index.html.erb:3
+  Rendered trips/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 95ms (Views: 84.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/city" for 127.0.0.1 at 2018-09-04 20:25:15 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/city"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/city/show" for 127.0.0.1 at 2018-09-04 20:25:31 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/city/show"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/cities/show" for 127.0.0.1 at 2018-09-04 20:25:39 -0700
+Processing by CitiesController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/cities_controller.rb:11
+Completed 404 Not Found in 6ms (ActiveRecord: 0.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find City with 'id'=show):
+  
+app/controllers/cities_controller.rb:11:in `show'
+Started PUT "/__web_console/repl_sessions/01f475eecc122897aa8367d142743e44" for 127.0.0.1 at 2018-09-04 20:26:01 -0700
+Started PUT "/__web_console/repl_sessions/01f475eecc122897aa8367d142743e44" for 127.0.0.1 at 2018-09-04 20:26:06 -0700
+Started GET "/cities/show" for 127.0.0.1 at 2018-09-04 20:27:25 -0700
+Processing by CitiesController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+Completed 400 Bad Request in 33ms (ActiveRecord: 1.9ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: city):
+  
+app/controllers/cities_controller.rb:17:in `city_params'
+app/controllers/cities_controller.rb:11:in `show'
+Started GET "/users/1/trips/new" for 127.0.0.1 at 2018-09-04 20:31:49 -0700
+Processing by TripsController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/new.html.erb within layouts/application
+  Rendered trips/_form.html.erb (157.2ms)
+  Rendered trips/new.html.erb within layouts/application (162.3ms)
+Completed 500 Internal Server Error in 228ms (ActiveRecord: 5.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `form_for' for #<ActionView::Helpers::FormBuilder:0x00007fea82648498>):
+    15: 
+    16:   <%= f.hidden_field :user_id %>
+    17: 
+    18:   <%= f.form_for @country do |country_field| %>
+    19:     <label>Country</label>
+    20:     <%= country_field.text_field :name %>
+    21:     <br><br>
+  
+app/views/trips/_form.html.erb:18:in `block in _app_views_trips__form_html_erb__3867183465463481642_70322630196680'
+app/views/trips/_form.html.erb:1:in `_app_views_trips__form_html_erb__3867183465463481642_70322630196680'
+app/views/trips/new.html.erb:3:in `_app_views_trips_new_html_erb__4500717066492686604_70322609495300'
