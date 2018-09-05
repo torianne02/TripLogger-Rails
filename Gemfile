@@ -36,6 +36,8 @@ gem 'omniauth-facebook'
 # Use dotenv-rails so environment variables are correctly loaded into the ENV
 gem 'dotenv-rails'
 
+gem 'nested_form_fields'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

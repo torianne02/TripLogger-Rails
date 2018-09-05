@@ -15,28 +15,28 @@
 
   <%= f.hidden_field :user_id %>
 
-  <%= f.fields_for :country, @country do |country_field| %>
+  <%= f.nested_fields_for :countries do |country| %>
     <label>Country</label>
-    <%= country_field.text_field :name %>
+    <%= country.text_field :name %>
     <br><br>
 
     <label>Native Language</label>
-    <%= country_field.text_field :native_language %>
+    <%= country.text_field :native_language %>
   <% end %>
 
   <br><br>
 
-  <%= f.fields_for :city, @city do |city_field| %>
+  <%= f.nested_fields_for :cities do |city| %>
     <label>City</label>
-    <%= city_field.text_field :name %>
+    <%= city.text_field :name %>
     <br><br>
 
     <label>Travel Advice</label>
-    <%= city_field.text_area :travel_advice %>
+    <%= city.text_area :travel_advice %>
     <br><br>
 
     <label>Tourist Rating (0-10) </label>
-    <%= city_field.range_field :tourist_rating, :in => 0..10 %>
+    <%= city.range_field :tourist_rating, :in => 0..10 %>
   <% end %>
 
   <br><br>

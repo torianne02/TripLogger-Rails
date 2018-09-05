@@ -2650,3 +2650,609 @@ ActionView::Template::Error (undefined method `form_for' for #<ActionView::Helpe
 app/views/trips/_form.html.erb:18:in `block in _app_views_trips__form_html_erb__3867183465463481642_70322630196680'
 app/views/trips/_form.html.erb:1:in `_app_views_trips__form_html_erb__3867183465463481642_70322630196680'
 app/views/trips/new.html.erb:3:in `_app_views_trips_new_html_erb__4500717066492686604_70322609495300'
+Started GET "/" for 127.0.0.1 at 2018-09-05 11:08:51 -0700
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 766ms (Views: 734.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2018-09-05 11:08:56 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 408ms (Views: 316.9ms | ActiveRecord: 15.7ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-09-05 11:09:03 -0700
+Started GET "/auth/facebook" for 127.0.0.1 at 2018-09-05 11:09:03 -0700
+Started GET "/auth/facebook/callback?code=AQCBhTR1AGGk8ikcbGR_9mg_I2SDo7IlLAOANvKSRnvSr-InXbBWwbsjMh6awr2uLOSazN7tkIMuWjCKjzIa2c3fYdz5iy9qByg8w8POLf1XMNvpJhd2vIHE5d3_9XjGjrtq24a6a3JkaS6jA1rLdSDyKuQ3mYSF2dTUBdTuavyEeqfYKoAOgOwXDHFBIPXo2-tmcZwQ2ppBc-T7BYDV7UZCg0DKMRi3YoJ8_xtTstCaUBmwz8ilSZwQOq8FQEz8KZfmE9qC23qHNfo7Ct4yoZCE_Zlaggu-edvbhbch-0GvVJO0Sv32QUUFqRI_bOFa1QEYNIODG8G57SNflhlVDgwbEEJ2vNiw7ZTS7YjyRoUF4g&state=629ca79b2b7bc61b8cb7842473e3b5e0fc710e0291f2bae4" for 127.0.0.1 at 2018-09-05 11:09:04 -0700
+Processing by SessionsController#create_oath as HTML
+  Parameters: {"code"=>"AQCBhTR1AGGk8ikcbGR_9mg_I2SDo7IlLAOANvKSRnvSr-InXbBWwbsjMh6awr2uLOSazN7tkIMuWjCKjzIa2c3fYdz5iy9qByg8w8POLf1XMNvpJhd2vIHE5d3_9XjGjrtq24a6a3JkaS6jA1rLdSDyKuQ3mYSF2dTUBdTuavyEeqfYKoAOgOwXDHFBIPXo2-tmcZwQ2ppBc-T7BYDV7UZCg0DKMRi3YoJ8_xtTstCaUBmwz8ilSZwQOq8FQEz8KZfmE9qC23qHNfo7Ct4yoZCE_Zlaggu-edvbhbch-0GvVJO0Sv32QUUFqRI_bOFa1QEYNIODG8G57SNflhlVDgwbEEJ2vNiw7ZTS7YjyRoUF4g", "state"=>"629ca79b2b7bc61b8cb7842473e3b5e0fc710e0291f2bae4"}
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = ? LIMIT ?[0m  [["uid", "1903334959725593"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:24
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:24
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 23ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-09-05 11:09:04 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:37
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 83ms (ActiveRecord: 1.6ms)
+
+
+  
+SyntaxError (/Users/victoriafluharty/TripLogger-Rails/app/views/users/show.html.erb:10: syntax error, unexpected keyword_do, expecting keyword_end
+'.freeze; @trips do each |trip| 
+                 ^~
+/Users/victoriafluharty/TripLogger-Rails/app/views/users/show.html.erb:18: syntax error, unexpected keyword_ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  
+app/views/users/show.html.erb:10: syntax error, unexpected keyword_do, expecting keyword_end
+app/views/users/show.html.erb:18: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/users/1" for 127.0.0.1 at 2018-09-05 11:09:29 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:37
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 2.8ms)
+
+
+  
+SyntaxError (/Users/victoriafluharty/TripLogger-Rails/app/views/users/show.html.erb:10: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+'.freeze; @trips each do |trip| 
+                 ^~~~):
+  
+app/views/users/show.html.erb:10: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+Started GET "/users/1" for 127.0.0.1 at 2018-09-05 11:09:59 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:37
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mTrip Load (4.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:10
+  Rendered users/show.html.erb within layouts/application (42.6ms)
+Completed 200 OK in 185ms (Views: 168.5ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-09-05 11:10:45 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:37
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:10
+  [1m[36mTrip Load (0.5ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:11
+  Rendered users/show.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 157ms (Views: 148.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-09-05 11:10:59 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:37
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:10
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:11
+  Rendered users/show.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 126ms (Views: 117.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-09-05 11:11:07 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:37
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:10
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:11
+  Rendered users/show.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 107ms (Views: 95.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2018-09-05 11:11:57 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/logout"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/logout" for 127.0.0.1 at 2018-09-05 11:12:24 -0700
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+Redirected to http://localhost:3000/
+Completed 302 Found in 64ms (ActiveRecord: 8.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-05 11:12:24 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 257ms (Views: 246.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signin" for 127.0.0.1 at 2018-09-05 11:12:30 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 187ms (Views: 174.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions?method=post" for 127.0.0.1 at 2018-09-05 11:12:43 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZemNh5qC/7SBI5rGZrUsatacLuCjekQWpfcrAyn3XexOJMx9HyHv1QGU00KKU7lMNtMcUh1+W3l9F9mlmhIY5Q==", "username"=>"MrGrey", "email"=>"mrgrey@gmail.com", "password"=>"[FILTERED]", "commit"=>"Sign In", "method"=>"post"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mrgrey@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 134ms (Views: 128.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-09-05 11:12:53 -0700
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 308ms (Views: 301.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2018-09-05 11:12:54 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (147.4ms)
+  Rendered users/new.html.erb within layouts/application (195.4ms)
+Completed 200 OK in 315ms (Views: 304.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-09-05 11:13:01 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vgoCL0YEBXlqn/fsH6TAg5rtW2NvSjlzVI4UfsABYTS2jwH1XKXxdNCCM0GdW7LR3b0nIuIazOUFYz3WHTy5Wg==", "user"=>{"username"=>"mrgrey", "email"=>"mrgrey@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:11
+  [1m[36mUser Create (6.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest") VALUES (?, ?, ?)[0m  [["username", "mrgrey"], ["email", "mrgrey@gmail.com"], ["password_digest", "$2a$10$2U8xb7AD/UCA7g76/WA0beeljtI3hZjygEG2GSFWR2lkfi.H9jKxa"]]
+  ↳ app/controllers/users_controller.rb:11
+  [1m[35m (13.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:11
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 155ms (ActiveRecord: 19.6ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2018-09-05 11:13:01 -0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:37
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:10
+  [1m[36mTrip Load (1.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/users/show.html.erb:11
+  Rendered users/show.html.erb within layouts/application (38.5ms)
+Completed 200 OK in 193ms (Views: 159.0ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/users/2/trips.new" for 127.0.0.1 at 2018-09-05 11:13:10 -0700
+Processing by TripsController#index as 
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/index.html.erb within layouts/application
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/trips/index.html.erb:3
+  Rendered trips/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 251ms (Views: 126.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/2/trips/new" for 127.0.0.1 at 2018-09-05 11:13:15 -0700
+Processing by TripsController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/new.html.erb within layouts/application
+  Rendered trips/_form.html.erb (47.4ms)
+  Rendered trips/new.html.erb within layouts/application (58.5ms)
+Completed 200 OK in 240ms (Views: 163.9ms | ActiveRecord: 6.3ms)
+
+
+Started POST "/users/2/trips" for 127.0.0.1 at 2018-09-05 11:13:31 -0700
+Processing by TripsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UJcuTA4GPs9sA1UyFCX+ejEB2VGq6ulqOoGH8nEPKsNgo7us3eY1JYzYCYemGRWpZ2YzjnJJpVOumOV2cgFx6w==", "trip"=>{"user_id"=>"", "country_attributes"=>{"name"=>"USA", "native_language"=>"English"}, "city_attributes"=>{"name"=>"Los Angeles", "travel_advice"=>"blah blah blah", "tourist_rating"=>"5"}, "length_of_trip"=>"2 days"}, "commit"=>"Create Trip", "user_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trips_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/trips_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trips_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/trips_controller.rb:13
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."name" = ? LIMIT ?[0m  [["name", "Los Angeles"], ["LIMIT", 1]]
+  ↳ app/models/trip.rb:11
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/trip.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/models/trip.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/trip.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/models/trip.rb:12
+  [1m[36mCountry Load (0.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."name" = ? LIMIT ?[0m  [["name", "USA"], ["LIMIT", 1]]
+  ↳ app/models/trip.rb:17
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/trip.rb:18
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/trip.rb:18
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trips_controller.rb:14
+  [1m[36mCountry Load (0.3ms)[0m  [1m[34mSELECT  "countries".* FROM "countries" WHERE "countries"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:14
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/trips_controller.rb:14
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trips_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/trips_controller.rb:16
+  Rendering trips/new.html.erb within layouts/application
+  Rendered trips/_form.html.erb (7.4ms)
+  Rendered trips/new.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 185ms (Views: 124.4ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/users/2/trips" for 127.0.0.1 at 2018-09-05 11:19:02 -0700
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by TripsController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/index.html.erb within layouts/application
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/trips/index.html.erb:3
+  Rendered trips/index.html.erb within layouts/application (18.1ms)
+Completed 200 OK in 901ms (Views: 735.3ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/users/2/trips/new" for 127.0.0.1 at 2018-09-05 11:19:09 -0700
+Processing by TripsController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/new.html.erb within layouts/application
+  Rendered trips/_form.html.erb (277.3ms)
+  Rendered trips/new.html.erb within layouts/application (286.1ms)
+Completed 500 Internal Server Error in 404ms (ActiveRecord: 7.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `form_for' for #<ActionView::Helpers::FormBuilder:0x00007fa8b9b13848>):
+    15: 
+    16:   <%= f.hidden_field :user_id %>
+    17: 
+    18:   <%= f.form_for :country, @country, :url => { :action => "create" } do |country_field| %>
+    19:     <label>Country</label>
+    20:     <%= country_field.text_field :name %>
+    21:     <br><br>
+  
+app/views/trips/_form.html.erb:18:in `block in _app_views_trips__form_html_erb__2553488242672223489_70181323294440'
+app/views/trips/_form.html.erb:1:in `_app_views_trips__form_html_erb__2553488242672223489_70181323294440'
+app/views/trips/new.html.erb:3:in `_app_views_trips_new_html_erb__1322019267583719147_70181330229820'
+Started GET "/users/2/trips/new" for 127.0.0.1 at 2018-09-05 11:26:54 -0700
+Processing by TripsController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/new.html.erb within layouts/application
+  Rendered trips/_form.html.erb (272.5ms)
+  Rendered trips/new.html.erb within layouts/application (276.0ms)
+Completed 500 Internal Server Error in 463ms (ActiveRecord: 4.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `form_for' for #<ActionView::Helpers::FormBuilder:0x00007fa8bb046760>):
+    15: 
+    16:   <%= f.hidden_field :user_id %>
+    17: 
+    18:   <%= f.form_for :country, @country, :url => { :action => "create" } do |country_field| %>
+    19:     <label>Country</label>
+    20:     <%= country_field.text_field :name %>
+    21:     <br><br>
+  
+app/views/trips/_form.html.erb:18:in `block in _app_views_trips__form_html_erb__2553488242672223489_70181323461480'
+app/views/trips/_form.html.erb:1:in `_app_views_trips__form_html_erb__2553488242672223489_70181323461480'
+app/views/trips/new.html.erb:3:in `_app_views_trips_new_html_erb__1322019267583719147_70181323466680'
+Started GET "/users/2/trips/new" for 127.0.0.1 at 2018-09-05 11:36:08 -0700
+Processing by TripsController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 1.6ms)
+
+
+  
+ArgumentError (No association found for name `countries'. Has it been defined yet?):
+  
+app/models/trip.rb:6:in `<class:Trip>'
+app/models/trip.rb:1:in `<top (required)>'
+app/controllers/trips_controller.rb:6:in `new'
+Started GET "/users/2/trips/new" for 127.0.0.1 at 2018-09-05 11:36:28 -0700
+Processing by TripsController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  Rendering trips/new.html.erb within layouts/application
+  Rendered trips/_form.html.erb (70.0ms)
+  Rendered trips/new.html.erb within layouts/application (76.7ms)
+Completed 200 OK in 531ms (Views: 338.2ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/users/2/trips" for 127.0.0.1 at 2018-09-05 11:36:57 -0700
+Processing by TripsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/bA+xVdYREY3PnoanASdRZv+TTGHu6YPNxuceI960bXNhKslhLhPrNflJq8uOHaWzZmn7l8Y6jajAv78jHSKnQ==", "trip"=>{"user_id"=>"", "countries"=>{"name"=>"USA", "native_language"=>"English"}, "cities"=>{"name"=>"Palmdale", "travel_advice"=>"Very hot and dry!", "tourist_rating"=>"5"}, "length_of_trip"=>"3 days"}, "commit"=>"Create Trip", "user_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:59
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trips_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/trips_controller.rb:12
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trips_controller.rb:13
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/trips_controller.rb:13
+Unpermitted parameters: :countries, :cities
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trips_controller.rb:14
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/trips_controller.rb:14
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trips_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/trips_controller.rb:16
+  Rendering trips/new.html.erb within layouts/application
+  Rendered trips/_form.html.erb (30.4ms)
+  Rendered trips/new.html.erb within layouts/application (59.3ms)
+Completed 200 OK in 414ms (Views: 224.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/2/trips" for 127.0.0.1 at 2018-09-05 11:39:23 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:57
+  Rendering trips/index.html.erb within layouts/application
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/trips/index.html.erb:3
+  Rendered trips/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 229ms (Views: 179.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/users/2/trips/new" for 127.0.0.1 at 2018-09-05 11:39:29 -0700
+Processing by TripsController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:57
+  Rendering trips/new.html.erb within layouts/application
+  Rendered trips/_form.html.erb (11.1ms)
+  Rendered trips/new.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 203ms (Views: 138.3ms | ActiveRecord: 5.1ms)
+
+
+Started POST "/users/2/trips" for 127.0.0.1 at 2018-09-05 11:39:49 -0700
+Processing by TripsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SeykDR2H2OuXl3mjc5VP9tmcjCVmoN1dUlBYUqfMzld52DHtzmfTAXdMJRbBqaQlj/tm+r4DkWTGSTrWpMKVfw==", "trip"=>{"user_id"=>"", "countries"=>{"name"=>"USA", "native_language"=>"English"}, "cities"=>{"name"=>"Palmdale", "travel_advice"=>"Very hot and dry.", "tourist_rating"=>"3"}, "length_of_trip"=>"5 days"}, "commit"=>"Create Trip", "user_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:57
+Unpermitted parameters: :countries, :cities
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trips_controller.rb:12
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/trips_controller.rb:12
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/trips_controller.rb:14
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/trips_controller.rb:14
+  Rendering trips/new.html.erb within layouts/application
+  Rendered trips/_form.html.erb (33.2ms)
+  Rendered trips/new.html.erb within layouts/application (49.3ms)
+Completed 200 OK in 240ms (Views: 214.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/2/trips" for 127.0.0.1 at 2018-09-05 11:39:56 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:57
+  Rendering trips/index.html.erb within layouts/application
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/trips/index.html.erb:3
+  Rendered trips/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 139ms (Views: 129.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/2/trips" for 127.0.0.1 at 2018-09-05 11:53:03 -0700
+Processing by TripsController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:56
+  Rendering trips/index.html.erb within layouts/application
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips" WHERE "trips"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/trips/index.html.erb:3
+  Rendered trips/index.html.erb within layouts/application (22.2ms)
+Completed 200 OK in 553ms (Views: 300.5ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/users/2/trips/new" for 127.0.0.1 at 2018-09-05 11:53:09 -0700
+Processing by TripsController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:56
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 1.8ms)
+
+
+  
+NoMethodError (undefined method `countries' for #<Trip:0x00007fa8bb0ea3d8>
+Did you mean?  country
+               country=):
+  
+app/controllers/trips_controller.rb:7:in `new'
+Started GET "/users/2/trips/new" for 127.0.0.1 at 2018-09-05 11:53:53 -0700
+Processing by TripsController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:56
+Completed 500 Internal Server Error in 84ms (ActiveRecord: 2.9ms)
+
+
+  
+NoMethodError (undefined method `build' for nil:NilClass):
+  
+app/controllers/trips_controller.rb:7:in `new'
+Started GET "/users/2/trips/new" for 127.0.0.1 at 2018-09-05 12:08:20 -0700
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /usr/local/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by TripsController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:56
+Completed 500 Internal Server Error in 197ms (ActiveRecord: 2.8ms)
+
+
+  
+NoMethodError (undefined method `build' for nil:NilClass):
+  
+app/controllers/trips_controller.rb:7:in `new'
+Started GET "/users/2/trips/new" for 127.0.0.1 at 2018-09-05 12:08:28 -0700
+Processing by TripsController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:56
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.4ms)
+
+
+  
+NoMethodError (undefined method `build' for nil:NilClass):
+  
+app/controllers/trips_controller.rb:7:in `new'
+Started GET "/users/2/trips/new" for 127.0.0.1 at 2018-09-05 12:08:38 -0700
+Processing by TripsController#new as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/trips_controller.rb:55
+  Rendering trips/new.html.erb within layouts/application
+  Rendered trips/_form.html.erb (63.3ms)
+  Rendered trips/new.html.erb within layouts/application (71.4ms)
+Completed 500 Internal Server Error in 203ms (ActiveRecord: 4.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `countries' for #<Trip:0x00007f91173965e8>
+Did you mean?  country
+               country=):
+    15: 
+    16:   <%= f.hidden_field :user_id %>
+    17: 
+    18:   <%= f.nested_fields_for :countries do |country| %>
+    19:     <label>Country</label>
+    20:     <%= country.text_field :name %>
+    21:     <br><br>
+  
+app/views/trips/_form.html.erb:18:in `block in _app_views_trips__form_html_erb__4401825369890085689_70130573915540'
+app/views/trips/_form.html.erb:1:in `_app_views_trips__form_html_erb__4401825369890085689_70130573915540'
+app/views/trips/new.html.erb:3:in `_app_views_trips_new_html_erb__3232354182202786561_70130573933660'

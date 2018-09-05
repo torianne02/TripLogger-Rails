@@ -4,13 +4,9 @@ class TripsController < ApplicationController
 
   def new
     @trip = Trip.new
-    @city = City.new
-    @country = Country.new
   end
 
   def create
-    @city = City.create(params[:city_attributes])
-    @country = Country.create(params[:country_attributes])
     @trip = Trip.create(trip_params)
 
     if @trip.save
@@ -62,11 +58,9 @@ class TripsController < ApplicationController
   def trip_params
     params.require(:trip).permit(
       :user_id,
-      :city_id,
-      :country_id,
       :length_of_trip,
-      city_attributes: [:name, :travel_advice, :tourist_rating],
-      country_attributes: [:name, :native_language]
+      city_attributes: %i[name travel_advice tourist_rating id _destroy],
+      country_attributes: %i[name native_language id _destroy]
     )
   end
 end
