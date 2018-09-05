@@ -7,4 +7,11 @@
 
 <h2>Welcome, <%= @user.username %>!</h2>
 
+You have <%= @trips.count %> trips logged.
+<% @trips.each do |trip| %>
+  <div><%= trip %></div>
+<% end %>
+
+<br><br>
+
 <%= link_to "Log Out", logout_path %>
